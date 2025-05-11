@@ -81,7 +81,7 @@
                         <a class="dropdown-item" href="<?= base_url('gudang/profile') ?>"><i class="bi bi-person"></i> My Profile</a>
                         <a class="dropdown-item" href="<?= base_url('home/profile') ?>"><i class="bi bi-gear"></i> Profile Settings</a>
                         <a class="dropdown-item" href="<?= base_url('home/pagesfaq') ?>"><i class="bi bi-question-circle"></i> Need Help?</a>
-                        <a class="dropdown-item" href="<?= base_url('gudang/logout') ?>"><i class="bi bi-box-arrow-right"></i> Sign Out</a>
+                        <a class="dropdown-item" href="<?= base_url('Login') ?>"><i class="bi bi-box-arrow-right"></i> Sign Out</a>
                     </div>
                 </li>
             </ul>
@@ -103,7 +103,7 @@
                         <?php if (session()->get('level') == 2): ?>
                         <!-- Menu untuk level 2 -->
                         <li class="active">
-                            <a href="<?= base_url('LapanganMapController/index') ?>">
+                            <a href="<?= base_url('Dashboard') ?>">
                                 <img src="<?= base_url('assets/img/icon/menu-icon-01.svg') ?>" alt="img">
                                 <span>Home</span>
                             </a>
@@ -111,7 +111,7 @@
                     <?php elseif (in_array(session()->get('level'), [1, 3, 10])): ?>
                         <!-- Menu untuk level 1, 3, dan 10 -->
                         <li class="active">
-                            <a href="<?= base_url('home/halamanutama') ?>">
+                            <a href="<?= base_url('Dashboard-Admin') ?>">
                                 <img src="<?= base_url('assets/img/icon/menu-icon-01.svg') ?>" alt="img">
                                 <span>Home</span>
                             </a>
@@ -125,13 +125,13 @@
                                     <span>Data Master</span>
                                     <span class="menu-arrow"></span> </a>
                                 <ul style="display: none;">
-                                    <li><a href="<?= base_url('home/pengguna') ?>"><i class="feather-more-horizontal"></i>Data Pengguna</a></li>
-                                    <li><a href="<?= base_url('lapangan') ?>"><i class="feather-more-horizontal"></i>Data Lapangan</a></li>
+                                    <li><a href="<?= base_url('Pengguna') ?>"><i class="feather-more-horizontal"></i>Data Pengguna</a></li>
+                                    <li><a href="<?= base_url('lapangan') ?>"><i class="feather-more-horizontal"></i>Data Salon</a></li>
 
                                     <!-- <li><a href="<?= base_url('ParkingController/cctv') ?>"><i class="feather-more-horizontal"></i>Kamera CCTV</a></li> -->
-                                    <li><a href="<?= base_url('LogActivityController/index') ?>"><i class="feather-more-horizontal"></i>Activity Logs</a></li>
-                                    <li><a href="<?= base_url('AppSettingsController/pengaturan') ?>"><i class="feather-more-horizontal"></i>Menu Settings</a></li>
-                                    <li><a href="<?= base_url('AppealAdminController/viewAppeals') ?>"><i class="feather-more-horizontal"></i>Pengajuan Banding</a></li>
+                                    <li><a href="<?= base_url('Log-Activity') ?>"><i class="feather-more-horizontal"></i>Activity Logs</a></li>
+                                    <li><a href="<?= base_url('Menu-Settings') ?>"><i class="feather-more-horizontal"></i>Menu Settings</a></li>
+                                    <li><a href="<?= base_url('Pengajuan-Banding') ?>"><i class="feather-more-horizontal"></i>Pengajuan Banding</a></li>
                                 </ul>
                             </li>
                         <?php } ?>
@@ -140,25 +140,25 @@
                             <li class="submenu">
                                 <a href="#">
                                     <i class="fas fa-parking"></i>
-                                    <span>My Arena</span>
+                                    <span>My Salon</span>
                                     <span class="menu-arrow"></span>
                                 </a>
 
                                 <ul style="display: none;">
-                                    <li><a href="<?= base_url('LapanganMapController/index') ?>"><i class="feather-more-horizontal"></i>Map Lapangan</a></li>
-                                    <li><a href="<?= base_url('booking/history') ?>"><i class="feather-more-horizontal"></i>Riwayat Booking</a></li>
-                                    <li><a href="<?= base_url('BookingController/showPaymentHistory') ?>"><i class="feather-more-horizontal"></i>Riwayat Pembayaran</a></li>
+                                    <li><a href="<?= base_url('Dashboard') ?>"><i class="feather-more-horizontal"></i>Map Salon</a></li>
+                                    <li><a href="<?= base_url('Riwayat-Booking') ?>"><i class="feather-more-horizontal"></i>Riwayat Booking</a></li>
+                                    <li><a href="<?= base_url('Riwayat-Pembayaran') ?>"><i class="feather-more-horizontal"></i>Riwayat Pembayaran</a></li>
                                 </ul>
 
                             </li>
                         <?php } ?>
+<div class="track-portfolio">
+    <img src="<?= base_url('assets/img/logosalon.png') ?>" alt="Booking Salon Logo">
+    <h4>Booking Salon Jadi Lebih Praktis</h4>
+    <p>Pilih layanan perawatan rambut, atur jadwal, dan tampil menawan — semua bisa dari satu aplikasi.</p>
+    <a href="#" class="btn">Cari Layanan</a>
+</div>
 
-                        <div class="track-portfolio">
-                            <img src="<?= base_url('assets/img/icon/roundsport.png') ?>" alt="Booking Lapangan Logo">
-                            <h4>Booking Lapangan Jadi Lebih Mudah</h4>
-                            <p>Pilih, pesan, dan main — semua jenis olahraga favoritmu dalam satu aplikasi.</p>
-                            <a href="#" class="btn">Cari Lapangan</a>
-                        </div>
 
 
                         <div class="need-btn">
@@ -181,61 +181,61 @@
  -->
 
 
-                        <style>
-                            .track-portfolio {
-                                text-align: center;
-                                padding: 50px 20px;
-                                background: linear-gradient(135deg, #00c6ff, #0072ff);
-                                color: #fff;
-                                border-radius: 12px;
-                            }
+                       <style>
+    .track-portfolio {
+        text-align: center;
+        padding: 50px 20px;
+        background: linear-gradient(135deg, #e0bbff, #d1c4e9); /* gradasi ungu muda */
+        color: #4a2c6b; /* ungu gelap */
+        border-radius: 12px;
+    }
 
-                            .track-portfolio img {
-                                max-width: 80px;
-                                margin-bottom: 20px;
-                            }
+    .track-portfolio img {
+        max-width: 80px;
+        margin-bottom: 20px;
+    }
 
-                            .track-portfolio h4 {
-                                font-size: 24px;
-                                font-weight: 700;
-                                margin-bottom: 10px;
-                            }
+    .track-portfolio h4 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
 
-                            .track-portfolio p {
-                                font-size: 16px;
-                                margin-bottom: 20px;
-                            }
+    .track-portfolio p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
 
-                            .track-portfolio .btn {
-                                background-color: #fff;
-                                color: #0072ff;
-                                padding: 10px 24px;
-                                border-radius: 8px;
-                                font-weight: 600;
-                                text-decoration: none;
-                                transition: background 0.3s;
-                            }
+    .track-portfolio .btn {
+        background-color: #fff;
+        color: #6a1b9a; /* ungu sedang */
+        padding: 10px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.3s, color 0.3s;
+    }
 
-                            .track-portfolio .btn:hover {
-                                background-color: #e0e0e0;
-                            }
+    .track-portfolio .btn:hover {
+        background-color: #ede7f6;
+        color: #4a148c; /* ungu tua */
+    }
 
-                            .need-btn a:hover {
-                                background-color: #c82333 !important;
-                                transform: scale(1.02);
-                                box-shadow: 0 6px 20px rgba(220, 53, 69, 0.3);
-                                transition: all 0.3s ease;
-                            }
+    .need-btn a:hover {
+        background-color: #8e24aa !important;
+        transform: scale(1.02);
+        box-shadow: 0 6px 20px rgba(142, 36, 170, 0.3);
+        transition: all 0.3s ease;
+    }
 
-                            .logout-btn a:hover {
-                                background-color: #0b5ed7 !important;
-                                /* Biru tua untuk efek hover */
-                                transform: scale(1.02);
-                                box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3);
-                                /* Bayangan biru */
-                                transition: all 0.3s ease;
-                            }
-                        </style>
+    .logout-btn a:hover {
+        background-color: #6a1b9a !important;
+        transform: scale(1.02);
+        box-shadow: 0 6px 20px rgba(106, 27, 154, 0.3);
+        transition: all 0.3s ease;
+    }
+</style>
+
 
                     </ul>
                 </div>

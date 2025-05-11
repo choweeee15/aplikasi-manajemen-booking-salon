@@ -11,9 +11,63 @@
                     <h4 class="card-title">Daftar Pengguna</h4>
 
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <a href="<?= base_url('home/tambahPengguna'); ?>" class="btn btn-primary">
+                        <!-- <a href="<?= base_url('home/tambahPengguna'); ?>" class="btn btn-primary">
                             <i class="fas fa-user-plus"></i> Tambah Pengguna
-                        </a>
+                        </a> -->
+                        <!-- Tombol Tambah Pengguna -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahPenggunaModal">
+                            <i class="fas fa-user-plus"></i> Tambah Pengguna
+                        </button>
+
+                        <!-- Modal Tambah Pengguna -->
+<div class="modal fade" id="tambahPenggunaModal" tabindex="-1" aria-labelledby="tambahPenggunaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="<?= base_url('home/simpanPengguna'); ?>" method="POST" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tambahPenggunaLabel">Tambah Pengguna</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+    <label class="form-label">Nama</label>
+    <input type="text" class="form-control border" name="nama">
+</div>
+<div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control border" name="email">
+</div>
+<div class="mb-3">
+    <label class="form-label">Nomor HP</label>
+    <input type="text" class="form-control border" name="no_hp">
+</div>
+<div class="mb-3">
+    <label class="form-label">Alamat</label>
+    <textarea class="form-control border" name="alamat"></textarea>
+</div>
+<div class="mb-3">
+    <label class="form-label">Level</label>
+    <select class="form-control border" name="level">
+        <option value="0">Guest</option>
+        <option value="1">Admin</option>
+        <option value="2">User</option>
+        <option value="3">Super Admin</option>
+        <option value="4">Terblokir</option>
+        <option value="10">Super Admin</option>
+    </select>
+</div>
+<div class="mb-3">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control border" name="password">
+</div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            </div>
+        </form>
+    </div>
+</div>
 
                         <div class="btn-group">
                             <a href="<?= base_url('home/pengguna?filter=all'); ?>" class="btn btn-outline-info">
@@ -113,6 +167,8 @@
                                                         <i class="fas fa-info-circle"></i> Info
                                                     </button>
                                                     <a href="<?= base_url('home/editPengguna/' . $p->id_user); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                                                    <!-- Tombol Edit Pengguna -->
+
                                                     <a href="<?= base_url('home/hapusPengguna/' . $p->id_user); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus pengguna ini?')"><i class="fas fa-trash-alt"></i> Hapus</a>
                                                 <?php else : ?>
                                                     <a href="<?= base_url('home/restorePengguna/' . $p->id_user); ?>" class="btn btn-success btn-sm"><i class="fas fa-undo"></i> Restore</a>
@@ -196,4 +252,6 @@
             myModal.show();
         }
     </script>
+
+
 </div>

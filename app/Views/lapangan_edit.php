@@ -1,13 +1,13 @@
 <div class="page-wrapper bg-wrapper">
     <div class="content">
         <div class="col-lg-8 offset-lg-2">
-            <h4 class="page-title">Edit Lapangan</h4>
+            <h4 class="page-title">Edit Service</h4>
 
             <form action="<?= base_url('lapangan/update/' . $lapangan['id']) ?>" method="post" enctype="multipart/form-data">
                 <?= csrf_field() ?>
 
                 <div class="form-group">
-                    <label>Nama Lapangan</label>
+                    <label>Nama Service</label>
                     <input type="text" name="nama" class="form-control" value="<?= $lapangan['nama'] ?>" required>
                 </div>
 
@@ -16,20 +16,32 @@
                     <textarea name="deskripsi" class="form-control"><?= $lapangan['deskripsi'] ?></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label>Lokasi</label>
+                <!-- <div class="form-group">
+                    <label>Stylist</label>
                     <input type="text" name="lokasi" class="form-control" value="<?= $lapangan['lokasi'] ?>">
-                </div>
+                </div> -->
+
+                <div class="form-group">
+    <label>Stylist</label>
+    <select name="lokasi" class="form-control">
+        <?php foreach ($pengguna as $p): ?>
+            <option value="<?= $p['nama']; ?>" <?= ($lapangan['lokasi'] == $p['nama']) ? 'selected' : ''; ?>>
+                <?= $p['nama']; ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+</div>
+
 
                 <div class="form-group">
                     <label>Tipe</label>
                     <select name="tipe" class="form-control" required>
-                        <option value="Futsal Field" <?= ($lapangan['tipe'] == 'Futsal Field') ? 'selected' : '' ?>>Futsal Field</option>
-                        <option value="Basketball Court" <?= ($lapangan['tipe'] == 'Basketball Court') ? 'selected' : '' ?>>Basketball Court</option>
-                        <option value="Badminton Court" <?= ($lapangan['tipe'] == 'Badminton Court') ? 'selected' : '' ?>>Badminton Court</option>
-                        <option value="Volleyball Court" <?= ($lapangan['tipe'] == 'Volleyball Court') ? 'selected' : '' ?>>Volleyball Court</option>
-                        <option value="Table Tennis" <?= ($lapangan['tipe'] == 'Table Tennis') ? 'selected' : '' ?>>Table Tennis</option>
-                        <option value="Baseball Field" <?= ($lapangan['tipe'] == 'Baseball Field') ? 'selected' : '' ?>>Baseball Field</option>
+                        <option value="Haircut" <?= ($lapangan['tipe'] == 'Haircut') ? 'selected' : '' ?>>Haircut ✂️</option>
+                        <option value="Hair coloring" <?= ($lapangan['tipe'] == 'Hair coloring') ? 'selected' : '' ?>>Hair coloring 🎨</option>
+                        <option value="Hair styling" <?= ($lapangan['tipe'] == 'Hair styling') ? 'selected' : '' ?>>Hair styling 💇‍♀️</option>
+                        <option value="Hair treatment" <?= ($lapangan['tipe'] == 'Hair treatment') ? 'selected' : '' ?>>Hair Treatment 💆‍♀️</option>
+                        <option value="Updo Styling" <?= ($lapangan['tipe'] == 'Updo Styling') ? 'selected' : '' ?>>Updo Styling  💁‍♀️</option>
+                        <option value="Perming" <?= ($lapangan['tipe'] == 'Perming') ? 'selected' : '' ?>>Perming 🔄</option>
                     </select>
                 </div>
 
@@ -38,7 +50,7 @@
                     <input type="number" name="harga" class="form-control" value="<?= $lapangan['harga'] ?>" required>
                 </div>
                 <div class="form-group">
-                    <label>Gambar Lapangan</label>
+                    <label>Gambar Service</label>
                     <div class="row">
                         <?php foreach ($gambar_lapangan as $gambar): ?>
                             <div class="col-sm-3">

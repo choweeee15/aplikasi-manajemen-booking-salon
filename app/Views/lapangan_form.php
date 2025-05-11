@@ -1,11 +1,11 @@
 <div class="page-wrapper bg-wrapper">
     <div class="content">
         <div class="col-lg-8 offset-lg-2">
-            <h4 class="page-title">Add Field</h4>
+            <h4 class="page-title">Add Service</h4>
 
             <form action="<?= base_url('lapangan/store') ?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label>Field Name</label>
+                    <label>Service Name</label>
                     <input type="text" name="nama" class="form-control" required>
                 </div>
 
@@ -15,19 +15,24 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Location</label>
-                    <input type="text" name="lokasi" class="form-control">
+                    <label>Stylist</label>
+                    <select name="lokasi" class="form-control" required>
+                        <?php foreach ($pengguna as $user) : ?>
+                            <option value="<?= $user['nama']; ?>"><?= $user['nama']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
+
 
                 <div class="form-group">
                     <label>Type</label>
                     <select name="tipe" class="form-control" required>
-                        <option value="Futsal Field">Futsal Field</option>
-                        <option value="Basketball Court">Basketball Court</option>
-                        <option value="Badminton Court">Badminton Court</option>
-                        <option value="Volleyball Court">Volleyball Court</option>
-                        <option value="Table Tennis">Table Tennis</option>
-                        <option value="Baseball Field">Baseball Field</option>
+                        <option value="Haircut">Haircut ✂️</option>
+                        <option value="Hair coloring">Hair coloring 🎨</option>
+                        <option value="Hair styling">Hair styling 💇‍♀️</option>
+                        <option value="Hair treatment">Hair treatment 💆‍♀️</option>
+                        <option value="Updo Styling">Updo Styling 💁‍♀️</option>
+                        <option value="Perming">Perming 🔄</option>
                     </select>
                 </div>
 
@@ -45,7 +50,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Field Images</label>
+                    <label>Service Images</label>
                     <input type="file" name="gambar[]" class="form-control" multiple required>
                     <small class="form-text text-muted">Select multiple images (max 5 images) by selecting multiple files. Accepted formats: JPG, PNG, JPEG.</small>
                 </div>

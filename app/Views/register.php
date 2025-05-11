@@ -18,7 +18,7 @@
             <div class="account-center">
                 <div class="account-logo">
                     <a href="<?= base_url('/') ?>">
-                        <img src="<?= base_url('assets/img/ayoarena2.png') ?>" alt="Logo">
+                        <img src="<?= base_url('assets/img/logosalon.png') ?>" alt="Logo">
                     </a>
                 </div>
                 <div class="account-box">

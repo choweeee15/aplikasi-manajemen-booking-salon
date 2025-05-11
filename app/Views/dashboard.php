@@ -874,18 +874,18 @@
 
 <?php if (in_array(session()->get('level'), [1, 3, 10])): ?>
   <div class="container mt-4">
-    <h2 class="text-center mb-4">Dashboard Manajemen Lapangan Olahraga</h2>
+    <h2 class="text-center mb-4">Dashboard Manajemen Booking Salon</h2>
     <div class="row justify-content-center mt-3">
 
       <div class="col-md-3 mb-4">
         <div class="card text-center shadow-lg border-radius-10 zoom-card" style="transition: transform 0.3s ease;">
           <div class="card-body">
-            <h5 class="card-title text-primary">Total Reservasi</h5>
+            <h5 class="card-title text-primary">Total Reservasi Salon</h5>
             <p class="card-text text-primary mb-3">
               <strong><?= $total_reservasi; ?></strong>
             </p>
             <div class="card-footer">
-              <small class="text-muted">Jumlah keseluruhan reservasi yang telah dilakukan di lapangan.</small>
+              <small class="text-muted">Jumlah keseluruhan reservasi yang telah dilakukan di salon.</small>
             </div>
           </div>
         </div>
@@ -900,7 +900,7 @@
               <strong>Rp<?= number_format($total_pembayaran, 0, ',', '.'); ?></strong>
             </p>
             <div class="card-footer">
-              <small class="text-muted">Total pembayaran yang sudah diterima untuk reservasi lapangan.</small>
+              <small class="text-muted">Total pembayaran yang sudah diterima untuk reservasi salon.</small>
             </div>
           </div>
         </div>
@@ -915,7 +915,7 @@
               <strong><?= $total_pengguna; ?></strong>
             </p>
             <div class="card-footer">
-              <small class="text-muted">Jumlah pengguna yang telah terdaftar untuk menggunakan lapangan.</small>
+              <small class="text-muted">Jumlah pengguna yang telah terdaftar untuk menggunakan salon.</small>
             </div>
           </div>
         </div>

@@ -35,7 +35,7 @@ class Database extends Config
 		'hostname' => 'localhost',
 		'username' => 'root',
 		'password' => '',
-		'database' => 'aplikasi_booking_lapangan',
+		'database' => 'salonn',
 		// 'database' => 'aplikasi_booking_lapangan_252',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',

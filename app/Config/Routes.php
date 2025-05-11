@@ -19,7 +19,8 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
 
 
 
-$routes->get('/dashboard', 'Dashboard::index');
+
+// $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/gudang/generateCaptcha', 'Gudang::generateCaptcha');
 
 $routes->get('/app-settings', 'AppSettingsController::index');
@@ -36,8 +37,8 @@ $routes->get('appealAdmin/view', 'AppealAdminController::viewAppeals');
 
 
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
-$routes->setDefaultMethod('index');
+$routes->setDefaultController('LoginController');
+$routes->setDefaultMethod('login');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
@@ -47,8 +48,33 @@ $routes->post('ParkingController/uploadBuktiDenda/(:num)', 'ParkingController::u
 $routes->get('parking/checkLateReservations', 'ParkingController::checkLateReservations');
 $routes->get('/log-activity', 'LogActivityController::index');
 
-
+// crud tabel lapangan
 $routes->get('/lapangan', 'LapanganController::index');
+
+$routes->get('/Dashboard-Admin', 'home::halamanutama');
+
+// dashboard pengguna booking
+$routes->get('/Dashboard', 'LapanganMapController::index');
+
+$routes->get('/Riwayat-Booking', 'BookingController::history');
+
+$routes->get('/Riwayat-Pembayaran', 'BookingController::showPaymentHistory');
+
+$routes->get('/Login', 'LoginController::login');
+
+$routes->get('/Forgot-Password', 'LoginController::forgot_password');
+
+$routes->get('/Pengguna', 'home::pengguna');
+$routes->get('/Log-Activity', 'LogActivityController::index');
+$routes->get('/Menu-Settings', 'AppSettingsController::pengaturan');
+$routes->get('/Pengajuan-Banding', 'AppealAdminController::viewAppeals');
+
+$routes->get('/booking1', 'BookingController1::index');
+$routes->post('/booking1/bookSalon', 'BookingController1::bookSalon');
+$routes->post('/booking1/konfirmasi/(:num)', 'BookingController1::konfirmasi/$1');
+$routes->post('/booking1/riwayat/(:num)', 'BookingController1::riwayat/$1');
+
+
 $routes->get('/lapangan/create', 'LapanganController::create');
 $routes->post('/lapangan/store', 'LapanganController::store');
 $routes->get('/lapangan/delete/(:num)', 'LapanganController::delete/$1');
@@ -67,7 +93,9 @@ $routes->post('booking/update_status/(:num)', 'BookingController::update_status/
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+// $routes->get('/', 'Home::index');
+$routes->get('/', 'LoginController::login');
+
 
 /*
  * --------------------------------------------------------------------

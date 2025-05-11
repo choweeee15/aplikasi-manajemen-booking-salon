@@ -64,35 +64,35 @@ class gudang extends BaseController
         return redirect()->to('/home/login');
     }
 
-    public function reset_pass($id)
-    {
-        $Sim = new M_belajar();
-        $chiuw = array('id_user' => session()->get('id'));
-        $data = array(
-            "password" => MD5('1111'),
-        );
-        $cek = session()->get('id');
-        if ($cek) {
-            $Sim->log_activity($cek, "Reset Password");
-        }
-        $chichi['chelsica'] = $Sim->edit('pengguna', $data, $chiuw);
-        return redirect()->to('gudang/profile');
-    }
+    // public function reset_pass($id)
+    // {
+    //     $Sim = new M_belajar();
+    //     $chiuw = array('id_user' => session()->get('id'));
+    //     $data = array(
+    //         "password" => MD5('1111'),
+    //     );
+    //     $cek = session()->get('id');
+    //     if ($cek) {
+    //         $Sim->log_activity($cek, "Reset Password");
+    //     }
+    //     $chichi['chelsica'] = $Sim->edit('pengguna', $data, $chiuw);
+    //     return redirect()->to('gudang/profile');
+    // }
 
-    public function change_pass()
-    {
-        $model = new M_belajar();
-        $chiuw = array('id_user' => session()->get('id'));
-        $data = array(
-            'password' => MD5($this->request->getPost('newpassword')),
-        );
-        $cek = session()->get('id');
-        if ($cek) {
-            $model->log_activity($cek, "Change Password");
-        }
-        $model->edit('pengguna', $data, $chiuw);
-        return redirect()->to('/gudang/profile')->with('success', 'Password successfully changed');
-    }
+    // public function change_pass()
+    // {
+    //     $model = new M_belajar();
+    //     $chiuw = array('id_user' => session()->get('id'));
+    //     $data = array(
+    //         'password' => MD5($this->request->getPost('newpassword')),
+    //     );
+    //     $cek = session()->get('id');
+    //     if ($cek) {
+    //         $model->log_activity($cek, "Change Password");
+    //     }
+    //     $model->edit('pengguna', $data, $chiuw);
+    //     return redirect()->to('/gudang/profile')->with('success', 'Password successfully changed');
+    // }
 
     public function aksi_register()
     {

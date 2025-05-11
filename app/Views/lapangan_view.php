@@ -2,13 +2,13 @@
     <div class="content">
         <div class="row">
             <div class="col-sm-12">
-                <h4 class="page-title">Data Lapangan</h4>
+                <h4 class="page-title">Data Salon</h4>
             </div>
         </div>
 
         <div class="card-box">
             <a href="<?= base_url('lapangan/create') ?>" class="btn btn-primary mb-3">
-                <i class="fas fa-plus"></i> Tambah Lapangan
+                <i class="fas fa-plus"></i> Tambah Service
             </a>
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">

@@ -31,7 +31,7 @@ session_start();
             </div>
           <?php endif; ?>
 
-          <form class="form-signin" action="<?= base_url('/home/forgot_password') ?>" method="POST">
+          <form class="form-signin" action="<?= base_url('Forgot-Password') ?>" method="POST">
             <div class="form-group">
               <input type="email" class="form-control" placeholder="Enter your email" name="email" required autofocus>
             </div>
@@ -39,7 +39,7 @@ session_start();
               <button class="btn btn-primary account-btn" type="submit">Send Reset Link</button>
             </div>
             <div class="text-center register-link">
-              <a href="<?= base_url('/home/login') ?>">Back to Login</a>
+              <a href="<?= base_url('Login') ?>">Back to Login</a>
             </div>
           </form>
         </div>

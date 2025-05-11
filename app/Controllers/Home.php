@@ -24,20 +24,54 @@ class Home extends BaseController
     }
 
     public function login()
-    {
-        echo view('loginn');
-    }
-    public function halamanutama()
-    {
-        if (!session()->has('id')) {
-            return redirect()->to('/home/login')->with('error', 'Anda harus login terlebih dahulu.');
-        }
+{
+    $angka1 = rand(1, 10);
+    $angka2 = rand(1, 10);
+    session()->set('captcha_jawaban', $angka1 + $angka2);
 
-        echo view('header');
-        echo view('menu');
-        echo view('dashboard');
-        echo view('footer');
+    echo view('loginn', ['angka1' => $angka1, 'angka2' => $angka2]);
+}
+    // public function halamanutama()
+    // {
+    //     if (!session()->has('id')) {
+    //         return redirect()->to('/home/login')->with('error', 'Anda harus login terlebih dahulu.');
+    //     }
+
+    //     echo view('header');
+    //     echo view('menu');
+    //     echo view('dashboard');
+    //     echo view('footer');
+    // }
+    
+    public function halamanutama()
+{
+    if (!session()->has('id')) {
+        return redirect()->to('/home/login')->with('error', 'Anda harus login terlebih dahulu.');
     }
+
+    $db = \Config\Database::connect();
+
+    $total_reservasi = $db->table('booking')->countAll();
+
+    $total_pembayaran = $db->table('booking')
+        ->selectSum('total_harga') // pastikan kolom ini benar
+        ->get()
+        ->getRow()
+        ->total_harga ?? 0;
+
+    $total_pengguna = $db->table('pengguna')->countAll();
+
+    $data = [
+        'total_reservasi' => $total_reservasi,
+        'total_pembayaran' => $total_pembayaran,
+        'total_pengguna' => $total_pengguna
+    ];
+
+    echo view('header');
+    echo view('menu');
+    echo view('dashboard', $data); // ← kirim data ke view di sini
+    echo view('footer');
+}
 
 
     public function pengguna()

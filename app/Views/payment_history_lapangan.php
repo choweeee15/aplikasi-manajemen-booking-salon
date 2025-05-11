@@ -2,7 +2,7 @@
     <div class="content">
         <div class="row">
             <div class="col-sm-12">
-                <h4 class="page-title">Riwayat Pembayaran Lapangan</h4>
+                <h4 class="page-title">Riwayat Pembayaran Salon</h4>
             </div>
         </div>
 
@@ -76,7 +76,7 @@
                                     <th>No</th>
                                     <th>Pengguna</th>
                                     <th>Tanggal</th>
-                                    <th>Lapangan</th>
+                                    <th>Tipe Service</th>
                                     <th>Total Harga</th>
                                     <th>Metode</th>
                                     <th>Bukti Pembayaran</th>

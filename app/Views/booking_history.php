@@ -2,13 +2,13 @@
     <div class="content">
         <div class="row">
             <div class="col-sm-12">
-                <h4 class="page-title">Riwayat Booking</h4>
+                <h4 class="page-title">Riwayat Booking Salon</h4>
             </div>
         </div>
         <div class="col-lg-12">
             <div class="card-box">
                 <div class="card-block">
-                    <h4 class="card-title">Daftar Booking Lapangan</h4>
+                    <h4 class="card-title">Daftar Booking Salon</h4>
 
                     <input type="text" id="searchInput" onkeyup="searchTable()" class="form-control mb-3" placeholder="Cari di tabel...">
 
@@ -19,7 +19,7 @@
                                     <th>No</th>
                                     <th>Pengguna</th>
                                     <th>Tanggal</th>
-                                    <th>Lapangan</th>
+                                    <th>Services</th>
                                     <th>Jam</th>
                                     <th>Total Harga</th>
                                     <th>Metode</th>
@@ -43,9 +43,15 @@
                                             <td><?= esc($booking['nama_pengguna'] ?? '-') ?></td>
                                             <td><?= esc($booking['tanggal']) ?></td>
                                             <td><?= esc($booking['lapangan_nama'] ?? '-') ?></td>
-                                            <td>
+                                           <!--  <td>
                                                 <?php foreach ($booking['waktu'] as $jam): ?>
                                                     <div><?= esc($jam) ?></div>
+                                                <?php endforeach; ?>
+                                            </td> -->
+                                            <td>
+                                                <?php foreach ($booking['waktu'] as $jam): ?>
+                                                    <?php $pecah = explode('-', $jam); ?>
+                                                    <div><?= esc(trim($pecah[0])) ?></div>
                                                 <?php endforeach; ?>
                                             </td>
                                             <td>Rp <?= number_format($booking['total_harga'], 0, ',', '.') ?></td>

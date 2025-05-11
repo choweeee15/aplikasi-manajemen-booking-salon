@@ -185,17 +185,17 @@
     <div class="content">
         <div class="row justify-content-center">
             <div class="col-sm-12">
-                <section id="welcome" class="text-center py-5" style="background-image: url('<?= base_url('img/welcome2.jpg') ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                <section id="welcome" class="text-center py-5" style="background-image: url('<?= base_url('img/salonhead3.jpg') ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;">
                     <div class="container">
-                        <h1 class="display-3 text-white">Welcome to Ayo Arena!</h1>
-                        <p class="lead text-white mb-4">Book your court, bring the squad!</p>
-                        <a href="#fields" class="btn btn-outline-light btn-lg">Explore Our Fields</a>
+                        <h1 class="display-3 text-white">Welcome to Velour Salon!</h1>
+                        <p class="lead text-white mb-4">Be Your Most Beautiful, Most Confident Self!</p>
+                        <a href="#fields" class="btn btn-outline-light btn-lg">Explore Our Service</a>
                     </div>
                 </section>
 
                 <section id="fields" class="bg-light py-5">
                     <div class="container">
-                        <h2 class="text-center fw-bold mb-4 text-dark">🎯 Available Fields</h2>
+                        <h2 class="text-center fw-bold mb-4 text-dark">💅 Available Salon Services</h2>
 
                         <div class="row justify-content-center mb-4">
                             <div class="col-lg-8 d-flex flex-wrap justify-content-center gap-3">
@@ -205,13 +205,13 @@
                                 </div>
                                 <div>
                                     <select id="field-filter" class="form-select filter-modern" onchange="filterFields()">
-                                        <option value="">🎯 Filter by Field Type</option>
-                                        <option value="basketball">Basketball Court</option>
-                                        <option value="futsal">Futsal Field</option>
-                                        <option value="badminton">Badminton Court</option>
-                                        <option value="volleyball">Volleyball Court</option>
-                                        <option value="table-tennis">Table Tennis</option>
-                                        <option value="baseball">Baseball Field</option>
+                                        <option value="">💇‍♀️ Filter by Service</option>
+                                        <option value="Haircut">Hair Cut 🎨</option>
+                                        <option value="Hair coloring">Hair coloring 🎨</option>
+                                        <option value="Hair styling">Hair styling 💇‍♀️</option>
+                                        <option value="Hair treatment">Hair treatment 💆‍♀️</option>
+                                        <option value="Updo Styling">Updo Styling  💁‍♀️</option>
+                                        <option value="Perming">Perming 🔄</option>
                                     </select>
                                 </div>
 
@@ -243,7 +243,7 @@
                             <h5 class="card-title text-dark"><?= esc($l['tipe']) ?></h5>
                             <p class="card-text text-muted"><?= esc($l['deskripsi']) ?></p>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary mt-2 rounded-pill transition-effect" data-bs-toggle="modal" data-bs-target="#bookingModal<?= $l['id'] ?>" style="flex-grow: 1; text-align: center; padding: 12px 20px; font-weight: 600; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-right: 10px;">Book Now</button>
+                                <button class="btn btn-primary mt-2 rounded-pill transition-effect" data-bs-toggle="modal" data-bs-target="#bookingModal<?= $l['id'] ?>" style="flex-grow: 1; text-align: center; padding: 12px 20px; font-weight: 600; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-right: 10px;">Make Appointment</button>
                                 <button class="btn btn-danger mt-2 rounded-pill transition-effect" data-bs-toggle="modal" data-bs-target="#detailModal<?= $l['id'] ?>" style="flex-grow: 1; text-align: center; padding: 12px 20px; font-weight: 600; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">Detail</button>
                             </div>
                         </div>
@@ -281,14 +281,14 @@
                                     </div>
 
                                     <div class="col-md-6 mb-4">
-                                        <h6 class="text-dark">Location:</h6>
+                                        <h6 class="text-dark">Stylist:</h6>
                                         <p class="text-muted" style="font-size: 1.1rem;"><?= esc($l['lokasi']) ?></p>
 
                                         <h6 class="text-dark">Type:</h6>
                                         <p class="text-muted" style="font-size: 1.1rem;"><?= esc($l['tipe']) ?></p>
 
-                                        <h6 class="text-dark">Price per Hour:</h6>
-                                        <p class="text-muted" style="font-size: 1.1rem;"><strong>Rp <?= number_format($l['harga'], 0, ',', '.') ?></strong> per hour</p>
+                                        <h6 class="text-dark">Price per Treatment:</h6>
+                                        <p class="text-muted" style="font-size: 1.1rem;"><strong>Rp <?= number_format($l['harga'], 0, ',', '.') ?></strong> per Treatment</p>
 
                                         <p class="text-muted" style="font-size: 1.1rem;"><?= esc($l['deskripsi']) ?></p>
                                     </div>
@@ -309,18 +309,18 @@
                                 <input type="hidden" name="lapangan_id" value="<?= $l['id'] ?>">
                                 <div class="modal-header border-bottom-0">
                                     <h5 class="modal-title text-center" id="bookingModalLabel<?= $l['id'] ?>">
-                                        <strong class="highlight-title"><?= esc($l['tipe']) ?> 🏀</strong>
+                                        <strong class="highlight-title"><?= esc($l['tipe']) ?> ✂️</strong>
                                     </h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <p class="text-muted fs-4">
-                                        <strong>Rp <?= number_format($l['harga'], 0, ',', '.') ?></strong> per hour
+                                        <strong>Rp <?= number_format($l['harga'], 0, ',', '.') ?></strong> per treatment
                                     </p>
                                     <p class="text-muted mb-4"><?= esc($l['deskripsi']) ?></p>
                                     <div class="mb-4">
                                         <p class="text-muted">
-                                            <strong>Location:</strong> <?= esc($l['lokasi']) ?>
+                                            <strong>Stylist:</strong> <?= esc($l['lokasi']) ?>
                                         </p>
                                     </div>
                                     <div class="mb-3">
@@ -330,12 +330,18 @@
                                     <div class="mb-5">
                                         <label class="form-label">Pilih Jam:</label>
                                         <div class="d-flex flex-wrap gap-3">
-                                            <?php foreach ($waktu as $w): ?>
+                                            <!-- <?php foreach ($waktu as $w): ?>
                                                 <label class="time-option">
                                                     <input type="checkbox" name="waktu_id[]" value="<?= $w['id'] ?>">
                                                     <span><?= esc($w['mulai']) . ' - ' . esc($w['selesai']) . ' ' . esc($w['satuan']) ?></span>
                                                 </label>
-                                            <?php endforeach; ?>
+                                            <?php endforeach; ?> -->
+                                            <?php foreach ($waktu as $w): ?>
+                                        <label class="time-option">
+                                            <input type="checkbox" name="waktu_id[]" value="<?= $w['id'] ?>">
+                                            <span><?= esc($w['mulai']) . ' ' . esc($w['satuan']) ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
                                         </div>
                                     </div>
                                     <div class="mb-4">
@@ -372,7 +378,7 @@
                                     </div>
                                     <div class="d-flex justify-content-end">
                                         <button type="button" class="btn btn-outline-secondary me-2 rounded-3 shadow-sm" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary ms-3 rounded-3 shadow-sm">Book Now</button>
+                                        <button type="submit" class="btn btn-primary ms-3 rounded-3 shadow-sm">Make Appointment</button>
                                     </div>
                                 </div>
 

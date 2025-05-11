@@ -6,8 +6,8 @@ session_start();
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-  <title>Aplikasi Manajemen Parkir</title>
-  <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/img/ayoarena.png') ?>">
+  <title>Aplikasi Manajemen Booking Salon</title>
+  <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/img/logosalon.png') ?>">
   
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,7 +24,7 @@ session_start();
     <div class="account-page">
       <div class="account-center">
         <div class="account-logo">
-          <a href="<?= base_url('index.html') ?>"><img src="<?= base_url('assets/img/ayoarena2.png') ?>" alt="Logo"></a>
+          <a href="<?= base_url('index.html') ?>"><img src="<?= base_url('assets/img/logosalon.png') ?>" alt="Logo"></a>
         </div>
         <div class="account-box">
           <div class="login-header">
@@ -32,7 +32,7 @@ session_start();
             <p>Sign in to continue to Parking</p>
           </div>
           
-          <form action="<?= base_url('/gudang/aksi_login/') ?>" method="POST" class="form-signin">
+          <form action="<?= base_url('/LoginController/aksi_login/') ?>" method="POST" class="form-signin">
             <div class="form-group">
                 <input type="email" name="email" class="form-control" placeholder="Email" required autofocus>
                 <span class="profile-views">
@@ -73,13 +73,21 @@ session_start();
                     </label>
                 </div>
                 
-                <a href="<?= base_url('home/forgot_password') ?>"><img src="<?= base_url('assets/img/icon/lock-icon.svg') ?>" class="me-1" alt="" />Forgot your password?</a>
+                <a href="<?= base_url('Forgot-Password') ?>"><img src="<?= base_url('assets/img/icon/lock-icon.svg') ?>" class="me-1" alt="" />Forgot your password?</a>
             </div>
             
             
             <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="6LeHXukqAAAAANHsUovwe7Xeq5e5keY-nF6nhoMP"></div>
-            </div>
+    <div class="g-recaptcha" data-sitekey="6LeHXukqAAAAANHsUovwe7Xeq5e5keY-nF6nhoMP" id="gCaptcha"></div>
+
+    <div id="math-captcha" style="display: none;">
+        <label for="captcha_jawaban">Berapakah hasil dari <?= $angka1 ?> + <?= $angka2 ?>?</label>
+        <input type="text" name="captcha_jawaban" class="form-control">
+    </div>
+
+    <input type="hidden" name="is_online" id="is_online" value="1">
+</div>
+
             
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-primary account-btn">
@@ -87,7 +95,7 @@ session_start();
                 </button>
             </div>
             <div class="text-center register-link">
-                Don't have an account? <a href="<?= base_url('/home/register/') ?>">Sign Up</a>
+                Don't have an account? <a href="<?= base_url('/LoginController/register/') ?>">Sign Up</a>
             </div>
           </form>
         </div>
@@ -103,8 +111,28 @@ session_start();
   <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
   <script src="<?= base_url('assets/js/jquery.slimscroll.js') ?>"></script>
   <script src="<?= base_url('assets/js/app.js') ?>"></script>
-
+  
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+window.addEventListener('load', () => {
+  const isOnline = navigator.onLine;
+  document.getElementById('is_online').value = isOnline ? '1' : '0';
+
+  const gCaptcha = document.getElementById('gCaptcha');
+  const mathCaptcha = document.getElementById('math-captcha');
+
+  if (isOnline) {
+    gCaptcha.style.display = 'block';
+    mathCaptcha.style.display = 'none';
+  } else {
+    gCaptcha.style.display = 'none';
+    mathCaptcha.style.display = 'block';
+  }
+});
+</script>
+
 </body>
 </html>
   
